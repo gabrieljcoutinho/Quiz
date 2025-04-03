@@ -1,0 +1,230 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    background-color: #252525;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #fff;
+    transition: background-color 0.5s ease; /* Transição suave no background */
+}
+
+body.correct-bg {
+    background-color: #2e7d32; /* Verde mais escuro para feedback correto */
+}
+
+body.wrong-bg {
+    background-color: #b71c1c; /* Vermelho mais escuro para feedback incorreto */
+}
+
+.quiz-container {
+    max-width: 700px;
+    width: 90%;
+    background: linear-gradient(135deg, #303030, #1a1a1a); /* Gradiente sutil */
+    padding: 40px; /* Aumentei o padding */
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6); /* Sombra mais pronunciada */
+    position: relative;
+    z-index: 1; /* Garante que fique acima de outros elementos */
+}
+
+.neon-indicator {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(15, 240, 252, 0.9); /* Mais intenso */
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(15, 240, 252, 1.2); /* Brilho mais forte */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3em; /* Maior */
+    color: #222; /* Cor do texto mais escura para contraste */
+    text-shadow: 0 0 8px rgba(15, 240, 252, 1.5); /* Sombra neon mais evidente */
+}
+
+h2 {
+    color: #f0f0f0; /* Cinza mais claro */
+    margin-bottom: 30px;
+    padding-top: 0; /* Removi o padding-top, já tem mais espaço agora */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7); /* Sombra no título */
+}
+
+.question {
+    font-size: 26px; /* Um pouco maior */
+    margin-bottom: 30px;
+    font-weight: bold;
+    color: #e0e0e0; /* Cinza claro */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+#quiz p {
+    color: #64ffda; /* Verde água vibrante */
+    font-weight: bold;
+    text-shadow: 0 0 8px #64ffda; /* Brilho mais intenso */
+    margin-bottom: 12px;
+    font-size: 1.2em;
+}
+
+.options button {
+    display: block;
+    width: 100%;
+    padding: 18px; /* Mais espaço interno */
+    margin: 12px 0;
+    border: 1px solid #555;
+    background: #3a3a3a; /* Tom mais escuro */
+    color: #eee;
+    border-radius: 12px; /* Mais arredondado */
+    cursor: pointer;
+    font-size: 19px;
+    transition: background 0.3s, transform 0.2s, border-color 0.3s, box-shadow 0.3s; /* Mais propriedades na transição */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Leve sombra nos botões */
+}
+
+.options button:hover {
+    background: #444;
+    transform: scale(1.03);
+    border-color: #666;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Sombra mais forte no hover */
+}
+
+.options button.selected {
+    background: #00c853; /* Verde mais vibrante para seleção */
+    color: #fff;
+    border-color: #00c853;
+    box-shadow: 0 0 10px #00e676; /* Brilho extra ao selecionar */
+    transform: scale(1.05); /* Leve aumento ao selecionar */
+}
+
+.options button.correct {
+    background: #a5d6a7 !important; /* Verde pastel */
+    color: #1b5e20 !important; /* Verde escuro */
+    border-color: #a5d6a7 !important;
+    box-shadow: 0 0 12px #66bb6a; /* Brilho mais suave */
+}
+
+.options button.wrong {
+    background: #ef9a9a !important; /* Vermelho pastel */
+    color: #b71c1c !important; /* Vermelho escuro */
+    border-color: #ef9a9a !important;
+    box-shadow: 0 0 12px #e57373; /* Brilho mais suave */
+}
+
+#result {
+    margin-top: 35px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #f0f0f0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+#result.correct-feedback {
+    color: #a5d6a7;
+    text-shadow: 0 0 10px #a5d6a7;
+    animation: pulse 1.5s infinite alternate;
+}
+
+#result.wrong-feedback {
+    color: #ef9a9a;
+    text-shadow: 0 0 10px #ef9a9a;
+    animation: shake 0.5s ease-in-out;
+}
+
+#result.bonus-text {
+    color: #ffeb3b; /* Amarelo vibrante para o bônus */
+    text-shadow: 0 0 10px #ffeb3b;
+    animation: tada 1s ease-out;
+}
+
+#result.final-score {
+    font-size: 32px;
+    color: #64ffda;
+    text-shadow: 0 0 15px #64ffda;
+    animation: glow 2s infinite alternate;
+}
+
+button.next-btn {
+    margin-top: 25px;
+    padding: 16px 30px;
+    font-size: 20px;
+    background: linear-gradient(to bottom, #4CAF50, #388E3C); /* Gradiente no botão */
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+button.next-btn:hover {
+    background: linear-gradient(to bottom, #66bb6a, #43A047);
+    transform: scale(1.05);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.5);
+}
+
+button.next-btn:disabled {
+    background: #777;
+    color: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Animações */
+@keyframes pulse {
+    0% { opacity: 0.8; transform: scale(1); }
+    100% { opacity: 1; transform: scale(1.05); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+    20%, 40%, 60%, 80% { transform: translateX(10px); }
+}
+
+@keyframes tada {
+    0% { transform: scale(1); }
+    10%, 20% { transform: rotate(-3deg) scale(0.9); }
+    30%, 50%, 70%, 90% { transform: rotate(3deg) scale(1.1); }
+    40%, 60%, 80% { transform: rotate(-3deg) scale(1.1); }
+    100% { transform: rotate(0) scale(1); }
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 10px #64ffda; }
+    100% { text-shadow: 0 0 25px #64ffda, 0 0 5px #64ffda; }
+}
+
+/* Efeitos de feedback nos botões */
+.options button.animate-correct {
+    animation: correct-pulse 1s ease-in-out;
+}
+
+@keyframes correct-pulse {
+    0% { transform: scale(1); background-color: #a5d6a7; }
+    50% { transform: scale(1.1); background-color: #81c784; }
+    100% { transform: scale(1); background-color: #a5d6a7; }
+}
+
+.options button.animate-wrong {
+    animation: wrong-shake 0.5s ease-in-out;
+}
+
+@keyframes wrong-shake {
+    0%, 100% { transform: translateX(0); background-color: #ef9a9a; }
+    25%, 75% { transform: translateX(-5px); background-color: #f44336; }
+    50% { transform: translateX(5px); background-color: #ef9a9a; }
+}
+
+.options button.animate-correct-answer {
+    animation: glow-correct 1.5s infinite alternate;
+}
+
+@keyframes glow-correct {
+    0% { box-shadow: 0 0 8px #a5d6a7; }
+    100% { box-shadow: 0 0 20px #a5d6a7, 0 0 5px #a5d6a7; }
+}
